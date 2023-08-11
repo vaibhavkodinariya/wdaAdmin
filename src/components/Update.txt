@@ -1,0 +1,176 @@
+import React from "react";
+
+import {
+    Box,
+    Text,
+    Stack,
+    Select,
+    // Button,
+    HStack,
+    VStack,
+    Grid,
+    Button,
+    
+} from '@chakra-ui/react';
+
+function UpdateStatus(){
+
+    return(
+        <Box 
+        // bgColor={'gray.100'}
+        fontFamily={"noto-serif"}
+        color="#1A237E"
+        minW={{
+            base: "100%",
+            md: "100%",
+        }}
+        border={'1px solid #1A237E'}
+       
+        
+        overflow={'hidden'}
+        >
+            
+          <Grid
+              
+            maxH={{
+                base: "90%",
+                md: "90% ",
+                
+            }}
+            // bgColor={'blue.100'}
+            
+          >
+            <Stack direction={['column', 'row']} spacing={50}
+                
+            >
+              <Stack direction={"column"} 
+              >
+                <Text borderBottom={"1px solid black"}>Name: soham somaiya </Text>
+                <Text>Domain</Text>
+                <Stack spacing={6}>
+                    <Text>www.sohamsomaiya.com</Text>
+                    <Text>www.sohamsomaiya.com</Text>
+                </Stack>
+
+              </Stack>
+
+              {/* <Stack direction={["column", "row"]} spacing={2} >
+                
+                    <Text>UserID: #12345678901234 </Text>
+                    
+                    <Stack direction={"column"}>
+                        <Text>Status: </Text>
+                        <Select placeholder='Select country'>
+                            <option>pending</option>
+                            <option>complete</option>
+                        </Select>
+                        <Select placeholder='Select country'>
+                            <option>pending</option>
+                            <option>complete</option>
+                        </Select>
+                    </Stack>    
+
+                    <Stack direction={"column"}>
+                        <Text>Type </Text>
+                        <Text> Individual </Text>
+                        <Text>Individual </Text>
+
+                    </Stack>
+                
+              </Stack> */}
+
+              <Stack>
+                <HStack alignItem={"center"} justifyContent={"center"}>
+                    <Text>UserID: #123456789012345678915 </Text>
+                </HStack>
+                <Stack direction={"row"} spacing={5}>
+                    <VStack >
+                        {/* <Stack  direction="row"> */}
+                            <Stack direction="column">
+                            <Text>Status: </Text>
+                            </Stack>
+                            <Stack direction="column" >
+                                <Select placeholder='Select status'
+                                    w={{
+                                        base:'80px',
+                                        md:'150px'
+                                    }}
+
+                                >
+                                    <option >pending</option>
+                                    <option>complete</option>
+                                </Select>
+                                <Select placeholder='Select status'>
+                                    <option>pending</option>
+                                    <option>complete</option>
+                                </Select>
+                            </Stack>
+                        {/* </Stack> */}
+                    </VStack>
+                    <VStack >
+                        {/* <Stack  direction="row"> */}
+                            <Stack direction="column">
+                            <Text>Type </Text>
+                           
+                            </Stack>
+                            <Stack direction="column" spacing={7}>
+                                <Text> Individual </Text>
+                                <Text>Individual </Text>
+                            
+                            </Stack>
+                        {/* </Stack> */}
+                    </VStack>
+                </Stack>
+              </Stack>
+
+              <Stack direction={"column"} >
+                    <Text>Contact: +911234567895 </Text>
+                    <Text> Update</Text>
+                    
+                    <Stack spacing={6}>
+                        <Button
+                        type="submit"
+                        bg="#1A237E"
+                        color="white"
+                        w={"50%"}
+                        // h={10}
+                        _hover={{ bg: " #202A9A" }}
+                        rounded={"xl"}
+                        fontFamily={"sans-serif"}
+                        // h={10}
+                        // left="10%"
+                        size='xs'
+                        fontSize={14}
+                        
+                    
+                    >
+                        Update
+                    </Button>
+                    <Button
+                        type="submit"
+                        bg="#1A237E"
+                        color="white"
+                        w={"50%"}
+                        // h={10}
+                        _hover={{ bg: " #202A9A" }}
+                        rounded={"xl"}
+                        fontFamily={"sans-serif"}
+                        // h={10}
+                        // left="10%"
+                        size='xs'
+                        fontSize={14}
+                    >
+                        Update
+                    </Button>
+                    </Stack>
+              </Stack>
+            </Stack>
+          </Grid>
+          </Box>
+        
+           
+        
+    );
+}
+
+export default UpdateStatus;
