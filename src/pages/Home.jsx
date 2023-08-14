@@ -44,11 +44,11 @@ function Home(){
                 >
            
                 <Text
-                // bgColor={"blackAlpha.600"}
-                // fontWeight={'bold'}
+                
                 mt="5"
                 fontSize="45px"
                 fontFamily={"noto-serif"}
+                fontWeight={"light"}
                 color="black"
                 w="100%"
                 h="50px"
@@ -90,31 +90,82 @@ function Home(){
                     position="relative" 
                     variant="unstyled"
                     
-                    isManual 
-                    >
+                    
+                >
                     <TabList 
                         border={"none"}
+                        m={1}
                         // ml="2%"
                        
                     >
-                        <Tab m={2}  >Update Status</Tab>
-                        <Tab m={2} >Query</Tab>
-                        <Tab m={2} >Template</Tab>
+                        <Tab
+                            px={2} 
+                            m={1}
+                            fontSize={{ base: "15px", md:"22px" }}
+                            fontFamily={"noto-serif"}
+                            fontWeight={"medium"}
+                            textAlign={"center"}
+                            // borderRightColor={"gray.200"}
+                            // borderRightWidth={"3px"}
+                            // borderBottomWidth={"3px"}
+                            // borderBottomColor={"gray.200"}
+                            
+                        >
+                            Update Status
+                        </Tab>
+                        {/* <Box
+                            bgColor={"gray.200"}
+                            fontFamily={"mono"}
+                            fontStyle={"bold"}
+                            fontSize={{ base: "15px", md:"25px" }}
+                            textAlign={"center"}
+                            w={"5px"}
+                            h={"35px"}
+                            px={"0.5px"}
+                            mt={"1.5%"}
+                            
+                            
+                       ></Box> */}
+                        <Tab
+                             px={2} 
+                             m={1} 
+                             fontSize={{ base: "15px", md:"22px" }}
+                             fontFamily={"noto-serif"}
+                             fontWeight={"medium"}
+                             textAlign={"center"}
+                        >
+                            Query
+                        </Tab>
+                        <Tab 
+                             px={2} 
+                             m={1} 
+                             fontSize={{ base: "15px", md:"22px" }}
+                             fontFamily={"noto-serif"}
+                             fontWeight={"medium"}
+                             textAlign={"center"}
+                        >
+                            Template
+                        </Tab>
                     </TabList>
                     
                     <TabIndicator
-                        mt="-1.5px"
-                        
-                        height="2px"
+                        mt="-17px"
+                        height="3px"
                         bg="#1A237E"
                         borderRadius="1px"
+                        // sx={{
+                        //     "--Tab-indicatorThickness": "2px",
+                        //     "--Tab-indicatorSize": "50px",
+                        //     "--Tabs-spacing": "17px"
+                        //   }}
                     />
                     <TabPanels
-                    bgColor="gray.600"
-                    mt="5%"
+                    // bgColor="gray.600"
+                    mt="2%"
                     // mr="5%"
-                    // alignItems="center"
+                    alignItems="center"
                     overflowY={"scroll"}
+                    
                     
                     // height="80vh"
                     h={{ base: "100%", md: "50vh" }}
@@ -122,20 +173,23 @@ function Home(){
                     sx={{
                         '&::-webkit-scrollbar': {
                           width: '16px',
-                          borderRadius: '8px',
-                          backgroundColor: `rgba(0, 0, 0, 0.05)`,
-                        },
-                        '&::-webkit-scrollbar-thumb': {
-                          backgroundColor: `rgba(0, 0, 0, 0.05)`,
-                        },
+                        //   borderRadius: '8px',
+                        //   backgroundColor: `rgba(0, 0, 0, 0.00)`,
+                        }
+                        
                       }}
                     >
                         <TabPanel
                             w={{ base: "100%", md:"70%" }}
                             ml="-20%"
+                            px={1}
+                            justifyContent={"center"}
+                            alignItems={"center"}
                             
                         >
-                            <UpdateStatus />
+                            <UpdateStatus 
+                                
+                            />
                         </TabPanel>
                         <TabPanel>
                             <Query />
