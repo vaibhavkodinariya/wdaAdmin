@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
-import background from "../images/login_backgrund.jpeg";
+import background from "../images/login_background.jpeg";
 
 import {
     // Box,
@@ -81,28 +81,30 @@ function Login(){
           }}
           bgPosition="center"
           bgRepeat="no-repeat"
-         
+          
           placeItems="center"
           position={"fixed"}
-          minW={{ base: "100%", md: "85vh" }}
-          minH={{ base: "100%",sm: "80%", md: "80vh" }}
+          minW={{ base: "100%",sm: "80%", md: "100%",lg:"80vh" }}
+          minH={{ base: "100%",sm: "80%", md: "80%" ,lg:"80vh"}}
        
-          bottom={{ base: "5vh", md: "10vh" }}
-          padding={{ base: "0", md: "10vh" }}
-          margin={{ base: "0", md: "10vh" }}
-          marginRight={{ base: "0", md: "40vh" }}
-          marginLeft={{ base: "2vh", md: "70vh" }}
-          
+          bottom={{ base: "5vh", md: "4vh" ,lg:"10vh"}}
+          padding={{ base: "0", md: "1vh",lg:"8vh" }}
+          margin={{ base: "0", md: "10vh",lg:"4vh" }}
+          marginRight={{ base: "0",  md: "0", lg:"40vh" }}
+          marginLeft={{ base: "2vh", md: "0" , lg:"60vh" }}
+           
         >
           <Grid 
            gap={5} 
            p={4} 
           
-          w={{ base: "80%", md: "300px" }}
+          w={{ base: "50%",md: "350px", lg:"300px" }}
            alignSelf="center"
           
           position={{ base: "fixed", md: "relative" }}
-           bottom={{base: "20vh", md:"-35vh"}}>
+           bottom={{base: "15vh", md:"-30vh" ,lg:"-35vh"}}
+          //  templateColumns={{ base: "1fr"}} // Responsive grid layout
+           >
             <FormControl>
               {/* <FormLabel>Username</FormLabel> */}
               <Input
@@ -139,6 +141,11 @@ function Login(){
                 fontFamily={"noto-serif"}
                />
             </FormControl>
+            {passwordError && (
+          <Text color="red" fontSize="sm">
+            {passwordError}
+          </Text>
+        )}
             <Button 
             type="submit"
             colorScheme="#1A237E" 
@@ -153,7 +160,7 @@ function Login(){
             alignSelf="center"
             justifySelf="center"
             onClick={handleLogin}
-            
+
 
             >
               Login
