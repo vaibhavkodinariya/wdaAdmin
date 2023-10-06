@@ -1,25 +1,14 @@
 // import React, { useEffect, useState } from "react";
-import React, { useState } from "react";
+import { useState } from "react";
 import background from "../images/login_background.jpeg";
 
-import {
-    // Box,
-    Button,
-    FormControl,
-    Grid,
-    // FormLabel,
-    Input,
-    // Stack,
-    Text,
-  } from "@chakra-ui/react";
-  
-function Login(){
+import { Box, Button, FormControl, Grid, Input, Text } from "@chakra-ui/react";
+
+function Login() {
   const [mobileNumber, setMobileNumber] = useState("");
   const [mobileError, setMobileError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
- 
 
   const validateMobileNumber = (mobileNumber) => {
     if (mobileNumber.length !== 10) {
@@ -45,8 +34,11 @@ function Login(){
     const hasUpperCase = /[A-Z]/.test(password);
     const hasLowerCase = /[a-z]/.test(password);
     const hasDigits = /\d/.test(password);
-    const hasSpecialChars = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(password);
-  
+    const hasSpecialChars =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        password
+      );
+
     if (
       password.length >= 8 &&
       hasUpperCase &&
@@ -61,97 +53,85 @@ function Login(){
       );
     }
   };
-  
 
   const handleLogin = () => {
     if (mobileError === "" && passwordError === "") {
-    
       console.log("Login successful!");
     }
   };
 
-
-    return (
+  return (
+    <Box
+      width={{ base: "100%", md: "100%", lg: "80%" }}
+      height={{ base: "90vh", md: "90vh", lg: "99vh" }}
+      placeItems="center"
+      color={"white"}
+    >
+      <Grid
+        bgImage={background}
+        bgSize="cover"
+        bgPosition="center"
+        bgRepeat="no-repeat"
+        placeItems="center"
+        width={{ base: "50vh", md: "70vh", lg: "100vh" }}
+        height={{ base: "50vh", md: "70vh", lg: "98%" }}
+        marginTop={{ base: "18%", sm: "10vh", md: "10%", lg: "1%" }}
+        marginLeft={{ base: "3vh", sm: "1vh", md: "30vh", lg: "55vh" }}
+      >
         <Grid
-          
-          bgImage={background}
-          bgSize={{
-            base: "contain",    
-            md: "cover",    
-          }}
-          bgPosition="center"
-          bgRepeat="no-repeat"
-          
-          placeItems="center"
-          position={"fixed"}
-          minW={{ base: "100%",sm: "80%", md: "100%",lg:"80vh" }}
-          minH={{ base: "100%",sm: "80%", md: "80%" ,lg:"80vh"}}
-       
-          bottom={{ base: "5vh", md: "4vh" ,lg:"10vh"}}
-          padding={{ base: "0", md: "1vh",lg:"8vh" }}
-          margin={{ base: "0", md: "10vh",lg:"4vh" }}
-          marginRight={{ base: "0",  md: "0", lg:"40vh" }}
-          marginLeft={{ base: "2vh", md: "0" , lg:"60vh" }}
-           
+          gap={5}
+          p={4}
+          w={{ base: "65%", md: "30%", lg: "300px" }}
+          alignSelf="center"
+          alignItems="center"
+          justifyContent="center"
+          position={{ base: "relative", md: "fixed" }}
+          paddingTop={{ base: "40vh", md: "60vh", lg: "60vh" }}
+          // bottom={{ base: "15vh", md: "-30vh", lg: "-35vh" }}
         >
-          <Grid 
-           gap={5} 
-           p={4} 
-          
-          w={{ base: "50%",md: "350px", lg:"300px" }}
-           alignSelf="center"
-          
-          position={{ base: "fixed", md: "relative" }}
-           bottom={{base: "15vh", md:"-30vh" ,lg:"-35vh"}}
-          //  templateColumns={{ base: "1fr"}} // Responsive grid layout
-           >
-            <FormControl>
-              {/* <FormLabel>Username</FormLabel> */}
-              <Input
-                type="number"
-                name="data"
-                value={mobileNumber}
-                borderColor={"black"}
-                maxLength={10}  // Set maximum length to 10 characters
-                placeholder="Mobile No"
-                fontFamily={"noto-serif"}
-                focusBorderColor="#1A237E"
-                rounded={"xl"}
-                onChange={handleMobileNumberChange}
-              />
-            </FormControl>
-                {mobileError && (
-              <Text color="red" fontSize="sm">
-                {mobileError}
-              </Text>
-            )}
-            <FormControl>
-              {/* <FormLabel>Password</FormLabel> */}
-              <Input 
-                type="password" 
-                placeholder="Password"
-                name="password"
-                value={password}
-                onChange={handlePasswordChange}
-                minLength={8} 
-                maxLength={16} 
-                borderColor={"black"}
-                focusBorderColor={"#1A237E"}
-                rounded={"xl"}
-                fontFamily={"noto-serif"}
-               />
-            </FormControl>
-            {passwordError && (
-          <Text color="red" fontSize="sm">
-            {passwordError}
-          </Text>
-        )}
-            <Button 
+          <FormControl>
+            {/* <FormLabel>Username</FormLabel> */}
+            <Input
+              type="number"
+              name="data"
+              value={mobileNumber}
+              borderColor={"black"}
+              maxLength={10} // Set maximum length to 10 characters
+              placeholder="Mobile No"
+              fontFamily={"noto-serif"}
+              focusBorderColor="#1A237E"
+              rounded={"xl"}
+              onChange={handleMobileNumberChange}
+            />
+          </FormControl>
+
+          <FormControl>
+            {/* <FormLabel>Password</FormLabel> */}
+            <Input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={handlePasswordChange}
+              minLength={8}
+              maxLength={16}
+              borderColor={"black"}
+              focusBorderColor={"#1A237E"}
+              rounded={"xl"}
+              fontFamily={"noto-serif"}
+            />
+          </FormControl>
+          {passwordError && (
+            <Text color="red" fontSize="sm">
+              {passwordError}
+            </Text>
+          )}
+          <Button
             type="submit"
-            colorScheme="#1A237E" 
+            colorScheme="#1A237E"
             bg="#1A237E"
-            w="50%" 
-            h="25px"
+            w="50%"
+            h="35px"
             // rounded={10}
             rounded={"3xl"}
             fontFamily={"noto-serif"}
@@ -160,14 +140,13 @@ function Login(){
             alignSelf="center"
             justifySelf="center"
             onClick={handleLogin}
-
-
-            >
-              Login
-            </Button>
-          </Grid>
+          >
+            Login
+          </Button>
         </Grid>
-      );
+      </Grid>
+    </Box>
+  );
 }
 
 export default Login;
