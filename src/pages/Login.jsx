@@ -63,7 +63,7 @@ function Login() {
   return (
     <Box
       width={{ base: "100%", md: "100%", lg: "80%" }}
-      height={{ base: "90vh", md: "90vh", lg: "99vh" }}
+      height={{ base: "90vh", md: "90vh", lg: "98vh" }}
       placeItems="center"
       color={"white"}
     >
