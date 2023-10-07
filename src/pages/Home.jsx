@@ -3,7 +3,6 @@ import background from "../images/home_background.jpeg";
 import logo from "../images/icon1.jpeg";
 import UpdateStatus from "../components/UpdateStatus";
 import Query from "../components/Query";
-import QueryView from "../components/QueryView";
 import {
   Box,
   Image,
@@ -131,7 +130,7 @@ function Home() {
                     </Box>
                 </Box>
                 <Box overflow="auto" border="1px solid #ccc" borderRadius="md" p={3} maxW={{ base: "100%", md: "80%", lg:"70%" }} left={"10%"} position={"relative"}>
-                  <QueryView />
+                  <Query />
                 </Box>
               </Grid>
             </TabPanel>
