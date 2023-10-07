@@ -1,9 +1,18 @@
 // import React, { useEffect, useState } from "react";
 import { useState } from "react";
 import background from "../images/login_background.jpeg";
-
-import { Box, Button, FormControl, Grid, Input, Text } from "@chakra-ui/react";
-
+import { useLoginMutation } from "../services/wdaSlice";
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  Input,
+  Text,
+  Image,
+} from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
+import loader from "../images/animation.gif";
 function Login() {
   const [mobileNumber, setMobileNumber] = useState("");
   const [mobileError, setMobileError] = useState("");
@@ -53,13 +62,51 @@ function Login() {
       );
     }
   };
-
-  const handleLogin = () => {
+  const [login, { isLoading }] = useLoginMutation();
+  const toast = useToast();
+  const handleLogin = (e) => {
+    e.preventDefault();
     if (mobileError === "" && passwordError === "") {
-      console.log("Login successful!");
+      if (!mobileNumber) {
+        toast({
+          title: "Please Fill Credentials Properly",
+          status: "warning",
+          duration: 9000,
+          isClosable: true,
+          colorScheme: "blue",
+        });
+      } else {
+        const user = {
+          contactNumber: mobileNumber,
+          password: password,
+          type: "Admin",
+        };
+        const result = login(user);
+        result.unwrap().then((response) => {
+          if (response.success == true) {
+            // sessionStorage.setItem("user", JSON.stringify(response.credentials));
+            // setIsLoggedIn(true);
+            console.log("LoggedIn");
+          } else {
+            toast({
+              title: response.message,
+              status: "warning",
+              duration: 9000,
+              isClosable: true,
+              colorScheme: "blue",
+            });
+          }
+        });
+      }
     }
   };
-
+  if (isLoading) {
+    return (
+      <Box bg="white" h="100vh" w="223vh" overflow="hidden">
+        <Image src={loader} alt="loader" h="100vh" ml="27%" mt="5dp" />
+      </Box>
+    );
+  }
   return (
     <Box
       width={{ base: "100%", md: "100%", lg: "80%" }}
