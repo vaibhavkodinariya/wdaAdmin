@@ -19,8 +19,6 @@ function Query() {
   const [contactNo, setContactNo] = useState(false);
   const { data: queries, isLoading } = useGetAllQueriesQuery();
 
-  const [reload, setReload] = useState(false);
-
   const searchQuery = (e) => {
     e.preventDefault();
     setForQueries(contactNo);
