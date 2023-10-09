@@ -20,9 +20,7 @@ function Query() {
   const { data: queries, isLoading } = useGetAllQueriesQuery();
 
   const [reload, setReload] = useState(false);
-  const handleReloadClick = () => {
-    setReload(!reload);
-  };
+
   const searchQuery = (e) => {
     e.preventDefault();
     setForQueries(contactNo);
