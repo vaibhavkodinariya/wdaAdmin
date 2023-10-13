@@ -3,7 +3,6 @@ import { React, useState, useLayoutEffect } from "react";
 import { ChakraProvider, Box, Image } from "@chakra-ui/react";
 import loader from "./images/animation.gif";
 // import Pages from "./components/Pages";
-import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 
