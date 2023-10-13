@@ -18,12 +18,14 @@ function Query() {
   const [isQueryDetailsActivate, setIsQueryDetailsActivate] = useState(false);
   const [contactNo, setContactNo] = useState(false);
   const { data: queries, isLoading } = useGetAllQueriesQuery();
+  console.log(getAllQueriesByContact);
 
   const searchQuery = (e) => {
     e.preventDefault();
     setForQueries(contactNo);
     setActive(true);
   };
+
   const onChange = (e) => {
     setContactNo(e.target.value);
   };
@@ -169,9 +171,9 @@ function Query() {
               mb={2}
               boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
               onClick={() => {
-                setForQueries(getAllQueriesByContact.contactNo);
+                setForQueries(getAllQueriesByContact.ContactNo);
                 setIsQueryDetailsActivate(true);
-                setContactNo(getAllQueriesByContact.contactNo);
+                setContactNo(getAllQueriesByContact.ContactNo);
               }}
             >
               <Box
@@ -181,7 +183,7 @@ function Query() {
               >
                 <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "95%"]}>
                   {getAllQueriesByContact.Name}
-                  {getAllQueriesByContact.contactNo}
+                  {getAllQueriesByContact.ContactNo}
                 </Box>
               </Box>
             </Box>

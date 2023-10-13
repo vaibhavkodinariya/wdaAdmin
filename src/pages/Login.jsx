@@ -86,6 +86,7 @@ function Login({ setIsLoggedIn }) {
           if (response.success == true) {
             sessionStorage.setItem("user", JSON.stringify(response.userId));
             setIsLoggedIn(true);
+            window.location.reload();
           } else {
             toast({
               title: response.message,
