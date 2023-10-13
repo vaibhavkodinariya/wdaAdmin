@@ -39,7 +39,7 @@ function Query() {
     <Box>
       <Box
         bgColor={"white"}
-        w={{ base: "100%", sm: "100%", md: "130%", lg: "100%" }}
+        w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
         rounded={"xl"}
         mb={2}
         boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
@@ -104,13 +104,13 @@ function Query() {
             <>
               <Box
                 bgColor={"white"}
-                w={{ base: "100%", sm: "100%", md: "130%", lg: "100%" }}
+                w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
                 rounded={"xl"}
                 mb={2}
                 boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
               >
                 <Box
-                  w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
+                  w={{ base: "100%", sm: "80%", md: "70%", lg: "100%" }}
                   p={2}
                   mx="auto"
                 >
@@ -164,7 +164,7 @@ function Query() {
           {isQueryActive == true ? (
             <Box
               bgColor={"white"}
-              w={{ base: "100%", sm: "100%", md: "130%", lg: "100%" }}
+              w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
               rounded={"xl"}
               mb={2}
               boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
@@ -192,7 +192,7 @@ function Query() {
                   <>
                     <Box
                       bgColor={"white"}
-                      w={{ base: "100%", sm: "100%", md: "130%", lg: "100%" }}
+                      w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
                       rounded={"xl"}
                       mb={2}
                       boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"

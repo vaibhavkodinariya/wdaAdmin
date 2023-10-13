@@ -10,6 +10,7 @@ import {
   VStack,
   Input,
   Image,
+  Spinner,
 } from "@chakra-ui/react";
 import {
   useGetAllStatusDetailsQuery,
@@ -18,6 +19,7 @@ import {
 } from "../services/wdaSlice";
 import loader from "../images/animation.gif";
 import { useToast } from "@chakra-ui/react";
+
 function UpdateStatus() {
   const toast = useToast();
   const [
@@ -32,6 +34,7 @@ function UpdateStatus() {
   const { data: status, isLoading } = useGetAllStatusDetailsQuery();
   const [state, setStatus] = useState("");
   const [contactNo, setContactNo] = useState("");
+
   const onUpdateStatus = (e, webSiteId) => {
     e.preventDefault();
     const details = {
@@ -59,10 +62,18 @@ function UpdateStatus() {
           });
         }
       });
+
     if (isStatusUpdateLoading) {
       return (
         <Box bg="white" h="100vh" w="223vh" overflow="hidden">
-          <Image src={loader} alt="loader" h="100vh" ml="27%" mt="5dp" />
+          {/* <Image src={loader} alt="loader" h="100vh" ml="27%" mt="5dp" /> */}
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
         </Box>
       );
     }
@@ -77,10 +88,54 @@ function UpdateStatus() {
   const onChangeStatus = (e) => {
     setStatus(e.target.value);
   };
+  // var data = true;
+  // if (data == true) {
+  //   return (
+  //     <Box
+  //       // bg="white"
+  //       h="50vh"
+  //       w="50vw"
+  //       display="flex"
+  //       justifyContent="center"
+  //       alignItems="center"
+  //       overflow="hidden"
+  //     >
+  //       <Box>
+  //         <Spinner
+  //           thickness="4px"
+  //           speed="0.65s"
+  //           emptyColor="gray.200"
+  //           color="blue.500"
+  //           size="xl"
+  //           // position={"relative"}
+  //           // top={"-150px"}
+  //           // right={"370px"}
+  //         />
+  //       </Box>
+  //     </Box>
+  //   );
+  // }
   if (isLoading || isDataLoading) {
     return (
-      <Box bg="white" h="100vh" w="223vh" overflow="hidden">
-        <Image src={loader} alt="loader" h="100vh" ml="27%" mt="5dp" />
+      <Box
+        // bg="white"
+        h="100vh"
+        w="100vw"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        overflow="hidden"
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+          position={"relative"}
+          top={"-150px"}
+          right={"370px"}
+        />
       </Box>
     );
   }
@@ -91,7 +146,7 @@ function UpdateStatus() {
       <Box>
         <Box
           bgColor={"white"}
-          w={{ base: "100%", sm: "100%", md: "130%", lg: "100%" }}
+          w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
           rounded={"xl"}
           mb={2}
           boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
@@ -163,7 +218,7 @@ function UpdateStatus() {
           <>
             <Box
               bgColor={"white"}
-              w={{ base: "100%", sm: "100%", md: "130%", lg: "100%" }}
+              w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
               rounded={"xl"}
               mb={2}
               boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
@@ -174,7 +229,10 @@ function UpdateStatus() {
                 p={2}
                 mx="auto"
               >
-                <Stack direction={{ base: "column", sm: "row" }}>
+                <Stack
+                  direction={{ base: "column", sm: "row" }}
+                  // w={{ base: "100%", sm: "80%", md: "70%", lg: "100%" }}
+                >
                   <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "60%"]}>
                     <Text>Name: {getAllStatusQueries.Name}</Text>
                   </Box>
@@ -195,7 +253,10 @@ function UpdateStatus() {
                 p={2}
                 mx="auto"
               >
-                <Stack direction={["column", "row"]}>
+                <Stack
+                  direction={["column", "row"]}
+                  w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
+                >
                   <HStack direction={["column", "row"]}>
                     <Box pl={["0px", "90px", "90px"]}>
                       <Text>Domain</Text>
@@ -223,7 +284,7 @@ function UpdateStatus() {
                 </Box>
               </Box>
               <Box
-                w={{ base: "100%", sm: "80%", md: "100%" }}
+                w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
                 overflow={"hidden"}
               >
                 {getAllStatusQueries.statusData.map((web) => {
@@ -254,7 +315,7 @@ function UpdateStatus() {
                             <Box
                               pl={["0px", "70px", "20px"]}
                               m={["3px", "3px", "2px"]}
-                              w={["100%", "50%", "auto"]}
+                              w={["100%", "80%", "auto"]}
                             >
                               <Select
                                 placeholder="Select Status"
@@ -455,10 +516,10 @@ function UpdateStatus() {
                                   </Box>
                                 </VStack>
                               </Box>
-                              <Box m={["8px", "8px", "8px"]}>
+                              <Box m={["8px", "8px", "10px"]}>
                                 <VStack direction={["column", "row"]}>
                                   <Box
-                                    pl={["0px", "120px", "75px"]}
+                                    pl={["0px", "120px", "65px"]}
                                     position={[
                                       "relative",
                                       "relative",

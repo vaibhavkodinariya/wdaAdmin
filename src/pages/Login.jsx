@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 import loader from "../images/animation.gif";
-function Login() {
+function Login({ setIsLoggedIn }) {
   const [mobileNumber, setMobileNumber] = useState("");
   const [mobileError, setMobileError] = useState("");
   const [password, setPassword] = useState("");
@@ -84,9 +84,8 @@ function Login() {
         const result = login(user);
         result.unwrap().then((response) => {
           if (response.success == true) {
-            // sessionStorage.setItem("user", JSON.stringify(response.credentials));
-            // setIsLoggedIn(true);
-            console.log("LoggedIn");
+            sessionStorage.setItem("user", JSON.stringify(response.userId));
+            setIsLoggedIn(true);
           } else {
             toast({
               title: response.message,

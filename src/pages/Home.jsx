@@ -3,17 +3,17 @@ import background from "../images/home_background.jpeg";
 import logo from "../images/icon1.jpeg";
 import UpdateStatus from "../components/UpdateStatus";
 import Query from "../components/Query";
-import QueryView from "../components/QueryView";
+// import QueryView from "../components/QueryView";
 import {
   Box,
   Image,
   Text,
   Tabs,
-  TabList,
-  Tab,
+  // TabList,
+  // Tab,
   TabPanels,
   TabPanel,
-  TabIndicator,
+  // TabIndicator,
   Grid,
 } from "@chakra-ui/react";
 
@@ -21,13 +21,13 @@ function Home() {
   return (
     <Box
       bgImage={background}
-      bgSize="cover"
+      bgSize={{ md: "contain", lg: "cover" }}
       placeItems="center"
       // position={"fixed"}
-      width={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+      width={{ base: "100%", sm: "100%", md: "100vw", lg: "100%" }}
       // height={{ base: "100%", sm: "100%", md: "100%" ,lg:"100vh"}}
       minW={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
-      minH={{ base: "100%", sm: "100%", md: "92vh", lg: "100vh" }}
+      minH={{ base: "100%", sm: "100%", md: "100%", lg: "100vh" }}
       bgPosition="center"
       bgRepeat={"no-repeat"}
       overflowY={"hidden"}
@@ -35,8 +35,9 @@ function Home() {
       <Box
         justifyContent="right"
         right="45%"
-        minW={{ base: "100%", sm: "100%", md: "100%" }}
-        minH={{ base: "100%", sm: "100%", md: "100%" }}
+        minW={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+        minH={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+        // h={{ md: "100%" }}
       >
         <Text
           mt={{ base: "5%", md: "3%" }}
@@ -70,19 +71,20 @@ function Home() {
           position={{ md: "relative" }}
           variant="unstyled"
         >
-          <TabList position={"relative"} top={{ md: "0", lg: "-36px" }}>
+          {/* <TabList position={"relative"} top={{ md: "0", lg: "-36px" }}>
             <Tab>Status & Query</Tab>
             <Tab>Templates</Tab>
-          </TabList>
-          <TabIndicator
+          </TabList> */}
+          {/* <TabIndicator
             position={"relative"}
             height="3px"
             bg="#1A237E"
             borderRadius="1px"
             top={{ md: "55px", lg: "20px" }}
-          />
+          /> */}
 
           <TabPanels
+            // bgColor={"white"}
             mt={{ md: "20", lg: "18" }}
             right={{ md: "5%" }}
             alignItems="center"
@@ -108,20 +110,24 @@ function Home() {
                 gridTemplateColumns={{ base: "1fr", md: "1fr", lg: "1fr 1fr" }}
                 gap={{ base: "1rem", md: "2rem", lg: "2.5rem" }}
                 width="100%"
-                minW={{ base: "100%", md: "80%", lg: "100%" }}
-                left="15vh"
+                minW={{ base: "100%", md: "50%", lg: "100%" }}
+                // left="15vh"
+                left={{ md: "0", lg: "15vh" }}
                 position="relative"
                 mx="auto"
+                ml={{ md: "1px", lg: "0" }}
+                p={{ md: "10px", lg: "0" }}
               >
                 <Box
                   overflow="auto"
                   border="1px solid #ccc"
                   borderRadius="md"
                   position={"relative"}
-                  right={"6%"}
+                  // right={"6%"}
+                  right={{ md: "0", lg: "6%" }}
                   p={1}
                   // minH={{ base: "100%", md: "80%", lg:"100%" }}
-                  minW={{ base: "100%", md: "80%", lg: "116%" }}
+                  minW={{ base: "100%", md: "70%", lg: "116%" }}
                 >
                   <Box
                     // minW={{ base: "100%", md: "100%", lg:"100%"}}
@@ -135,16 +141,14 @@ function Home() {
                   border="1px solid #ccc"
                   borderRadius="md"
                   p={3}
-                  maxW={{ base: "100%", md: "80%", lg: "70%" }}
-                  left={"10%"}
+                  maxW={{ base: "100%", md: "100%", lg: "70%" }}
+                  // left={"10%"}
+                  left={{ md: "0", lg: "10%" }}
                   position={"relative"}
                 >
                   <Query />
                 </Box>
               </Grid>
-            </TabPanel>
-            <TabPanel>
-              <p>Content for the third tab</p>
             </TabPanel>
           </TabPanels>
         </Tabs>
