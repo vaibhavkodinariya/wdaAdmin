@@ -1,0 +1,211 @@
+    <Flex direction="column">
+      {/* Box for search content */}
+      <Box
+        bgColor={"white"}
+        rounded={"xl"}
+        mb={2}
+        boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
+        p={{ base: 2, sm: 4 }}
+      >
+        {/* Web Status Search */}
+        <Stack direction={{ base: "column", sm: "row" }} spacing={{ base: 2 }}>
+          <Box flex="1">
+            <Text fontSize={{ base: "2xl", md: "3xl" }} textAlign="left" ml={3}>
+              Web Status
+            </Text>
+          </Box>
+          <Box flex="3">
+            <Input
+              variant="outline"
+              placeholder="Enter Contact To Fetch Data"
+              rounded="30px"
+            />
+          </Box>
+          <Box flex="2" textAlign="right">
+            <Button
+              type="submit"
+              bg="#1A237E"
+              color="white"
+              h={{ base: 8, md: 10 }}
+              rounded={"xl"}
+              _hover={{ bg: " #202A9A" }}
+              fontFamily={"sans-serif"}
+              fontWeight={"light"}
+              fontSize={{ base: 13, md: 16 }}
+            >
+              Search
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
+
+      {/* Main1 box code */}
+      <Box
+        bgColor={"white"}
+        rounded={"xl"}
+        mb={2}
+        boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
+        p={{ base: 2, sm: 4 }}
+      >
+        {/* Display Name, User ID, Contact Number */}
+        <Stack direction={{ base: "column", sm: "row" }} spacing={{ base: 2 }}>
+          <Box flex="3">
+            <Text>Name: Soham Somaiya</Text>
+          </Box>
+          <Box flex="5">
+            <Text>User Id: #1234567890123456789</Text>
+          </Box>
+          <Box flex="3">
+            <Text>Contact: +911234567890</Text>
+          </Box>
+        </Stack>
+        <hr />
+        
+        {/* Domain, Status, Type, Update */}
+        <Stack direction="row" spacing={2}>
+          <VStack flex="3">
+            <Text fontSize={{ md: "18", lg: "18" }}>Domain</Text>
+          </VStack>
+          <VStack flex="3">
+            <Text fontSize={{ md: "18", lg: "18" }}>Status</Text>
+          </VStack>
+          <VStack flex="3">
+            <Text fontSize={{ md: "18", lg: "18" }}>Type</Text>
+          </VStack>
+          <Box flex="2" textAlign="right">
+            <Text fontSize={{ md: "18", lg: "18" }}>Update</Text>
+          </Box>
+        </Stack>
+
+        {/* Display Details of Domain Name, Status Selection, Type Name, Update Button */}
+        <Stack
+          direction={{ base: "column", sm: "row" }}
+          spacing={{ base: 2 }}
+          overflow="hidden"
+        >
+          <Box flex="3">
+            <Text noOfLines={2}>
+              www.somethinghhastobeenhappend.edu.in
+            </Text>
+          </Box>
+          <Box flex="3">
+            <Select placeholder="Select Status" rounded="xl">
+              <option>pending</option>
+              <option>complete</option>
+            </Select>
+          </Box>
+          <Box flex="3">
+            <Text>Individual</Text>
+          </Box>
+          <Box flex="2" position="relative">
+            <Button
+              type="submit"
+              bg="#1A237E"
+              color="white"
+              h={{ base: 6, md: 8 }}
+              w={{ base: 20, md: 24 }}
+              _hover={{ bg: " #202A9A" }}
+              rounded={"xl"}
+              fontFamily={"sans-serif"}
+              fontWeight={"light"}
+              fontSize={{ base: 13, md: 16 }}
+            >
+              Update
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
+      {/* Main1 box code close */}
+
+      {/* Main2 box code */}
+      <Box
+        bgColor={"white"}
+        rounded={"xl"}
+        mb={2}
+        boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
+        p={{ base: 2, sm: 4 }}
+      >
+        {/* Display Name, User ID, Contact Number */}
+        <Stack direction={{ base: "column", sm: "row" }} spacing={{ base: 2 }}>
+          <Box flex="3">
+            <Text>Name: Soham Somaiya</Text>
+          </Box>
+          <Box flex="5">
+            <Text>User Id: #1234567890123456789</Text>
+          </Box>
+          <Box flex="3">
+            <Text>Contact: +911234567890</Text>
+          </Box>
+        </Stack>
+        <hr />
+
+        {/* Domain, Status, Type, Update */}
+        <Stack direction="row" spacing={2}>
+          <VStack flex="3">
+            <Text fontSize={{ md: "18", lg: "18" }}>Domain</Text>
+          </VStack>
+          <VStack flex="3">
+            <Text fontSize={{ md: "18", lg: "18" }}>Status</Text>
+          </VStack>
+          <VStack flex="3">
+            <Text fontSize={{ md: "18", lg: "18" }}>Type</Text>
+          </VStack>
+          <Box flex="2" textAlign="right">
+            <Text fontSize={{ md: "18", lg: "18" }}>Update</Text>
+          </Box>
+        </Stack>
+
+        {/* Display Details of Domain Name, Status Selection, Type Name, Update Button */}
+        <Stack
+          direction={{ base: "column", sm: "row" }}
+          spacing={{ base: 2 }}
+          overflow="hidden"
+        >
+          <Box flex="3">
+            <Text noOfLines={2}>
+              www.somethinghhastobeenhappend.edu.in
+            </Text>
+          </Box>
+          <Box flex="3">
+            <Select placeholder="Select Status" rounded="xl">
+              <option>pending</option>
+              <option>complete</option>
+            </Select>
+          </Box>
+          <Box flex="3">
+            <Text>Individual</Text>
+          </Box>
+          <Box flex="2" position="relative">
+            <Button
+              type="submit"
+              bg="#1A237E"
+              color="white"
+              h={{ base: 6, md: 8 }}
+              w={{ base: 20, md: 24 }}
+              _hover={{ bg: " #202A9A" }}
+              rounded={"xl"}
+              fontFamily={"sans-serif"}
+              fontWeight={"light"}
+              fontSize={{ base: 13, md: 16 }}
+            >
+              Update
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
+      {/* Main2 box code close */}
+    </Flex>
+    
+  );
+}
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

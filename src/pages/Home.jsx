@@ -71,15 +71,15 @@ function Home() {
 
           variant="unstyled"
         >
-          <TabList
+           {/* <TabList
            position={"relative"}
            top={{md:"0",lg:"-36px"}}
           >
             <Tab>Status & Query</Tab>
             <Tab>Templates</Tab>
             
-          </TabList>
-          <TabIndicator position={"relative"} height="3px" bg="#1A237E" borderRadius="1px" top={{ md:"55px",lg:"20px"}} />
+          </TabList>  */}
+          {/* <TabIndicator position={"relative"} height="3px" bg="#1A237E" borderRadius="1px" top={{ md:"55px",lg:"20px"}} /> */}
           
 
           <TabPanels
@@ -110,7 +110,8 @@ function Home() {
                 gap={{ base: "1rem", md: "2rem" , lg:"2.5rem"}}
                 width="100%"
                 minW={{ base: "100%", md: "80%" ,lg:"100%"}}
-                left="15vh"
+                // left="15vh"
+                left={{md:"0",lg:"15vh"}}
                 position="relative"
                 mx="auto"
               >
@@ -119,7 +120,8 @@ function Home() {
                 border="1px solid #ccc" 
                 borderRadius="md" 
                 position={"relative"}
-                right={"6%"}
+                // right={"6%"}
+                right = {{md:"0",lg:"6%"}}
                 p={1}
                 // minH={{ base: "100%", md: "80%", lg:"100%" }}
                  minW={{ base: "100%", md: "80%", lg:"116%" }} >
