@@ -69,14 +69,15 @@ function Query() {
             >
               <Input
                 variant="outline"
-                placeholder="Enter Contact Here"
+                placeholder="Enter Contact To Fetch Data"
                 rounded={"30px"}
                 onChange={onChange}
               />
             </Box>
             <Box
-              p={["1px", "1px", "5px"]}
-              w={["100%", "30%", "25%"]}
+              p={{ md: "5px", lg: "4px" }}
+              // w={["100%", "30%", "15%"]}
+              w={{ md: "14%", lg: "15%" }}
               textAlign="right"
             >
               <Button
@@ -85,16 +86,44 @@ function Query() {
                 color="white"
                 h={8}
                 position={"relative"}
-                b={10}
+                w={{ md: "88px", lg: "70px" }}
                 _hover={{ bg: " #202A9A" }}
                 rounded={"xl"}
                 alignItems={"center"}
                 fontFamily={"sans-serif"}
                 fontWeight={"light"}
                 fontSize={13}
-                onClick={searchQuery}
+                onClick={(e) => {
+                  searchQuery(e);
+                }}
               >
                 Search
+              </Button>
+            </Box>
+            <Box
+              p={{ md: "5px", lg: "4px" }}
+              // w={["100%", "30%", "16%"]}
+              w={{ md: "14%", lg: "16%" }}
+              textAlign="right"
+            >
+              <Button
+                type="submit"
+                bg="#1A237E"
+                color="white"
+                h={8}
+                position={"relative"}
+                w={{ md: "80px", lg: "70px" }}
+                _hover={{ bg: " #202A9A" }}
+                rounded={"xl"}
+                alignItems={"center"}
+                fontFamily={"sans-serif"}
+                fontWeight={"light"}
+                fontSize={13}
+                onClick={() => {
+                  window.location.reload();
+                }}
+              >
+                Clear
               </Button>
             </Box>
           </Stack>
@@ -112,15 +141,23 @@ function Query() {
                 boxShadow="0px 4px 6px rgba(0, 0, 0, 0.1)"
               >
                 <Box
-                  w={{ base: "100%", sm: "80%", md: "70%", lg: "100%" }}
+                  w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
                   p={2}
                   mx="auto"
                 >
                   <Stack direction={{ base: "column", sm: "row" }}>
-                    <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "100%"]}>
-                      <Text>Web Id:{item.webSiteId} </Text>
+                    <Box p={["1px", "1px", "1px"]} 
+                    // w={["100%", "30%", "100%"]}
+                   w={{ base: "100%", sm: "80%", md: "80%", lg: "100%" }}
+                    
+                    >
+                      <Text>Web Id:{item.webId} </Text>
                     </Box>
-                    <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "60%"]}>
+                    <Box p={["1px", "1px", "1px"]}
+                    //  w={["100%", "30%", "60%"]}
+                   w={{ base: "100%", sm: "80%", md: "50%", lg: "60%" }}
+
+                     >
                       <Text>Date: {item.date} </Text>
                     </Box>
                   </Stack>
@@ -133,15 +170,23 @@ function Query() {
                   p={2}
                   mx="auto"
                 >
-                  <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "95%"]}>
-                    <Text>{item.description}</Text>
-                    <Button
+                  <Box
+                   p={["1px", "1px", "1px"]}
+                   w={["100%", "30%", "95%"]}
+                   
+                   >
+                    <Text 
+                    fontSize="15"
+                    >{item.description}</Text>
+                    
+                  </Box>
+                  {/* <Button
                       type="submit"
                       bg="#1A237E"
                       color="white"
                       h={8}
                       position={"relative"}
-                      b={10}
+                      m={3}
                       // w={20}
                       _hover={{ bg: " #202A9A" }}
                       rounded={"xl"}
@@ -154,8 +199,7 @@ function Query() {
                       }}
                     >
                       Back
-                    </Button>
-                  </Box>
+                    </Button> */}
                 </Box>
               </Box>
             </>
@@ -205,16 +249,29 @@ function Query() {
                       }}
                     >
                       <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        // alignItems="center"
                         w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
                         p={2}
                         mx="auto"
                       >
-                        <Box
-                          p={["1px", "1px", "1px"]}
-                          w={["100%", "30%", "95%"]}
+                        <Text
+                          m={["1px", "1px", "1px"]}
+                          w={["100%", "30%", "80%"]}
+                          fontSize="19"
+                          textAlign="left"
                         >
-                          {item.name} {item.contactNo}
-                        </Box>
+                          {item.name}
+                        </Text>
+                        <Text
+                          m={["1px", "1px", "1px"]}
+                          w={["100%", "30%", "80%"]}
+                          fontSize="19"
+                          textAlign="right"
+                        >
+                          {item.contactNo}
+                        </Text>
                       </Box>
                     </Box>
                   </>

@@ -9,7 +9,7 @@ import {
   HStack,
   VStack,
   Input,
-  Image,
+  // Image,
   Spinner,
 } from "@chakra-ui/react";
 import {
@@ -17,21 +17,21 @@ import {
   useLazyGetStatusByContactQuery,
   useUpdateStatusMutation,
 } from "../services/wdaSlice";
-import loader from "../images/animation.gif";
+// import loader from "../images/animation.gif";
 import { useToast } from "@chakra-ui/react";
 
 function UpdateStatus() {
   const toast = useToast();
   const [
     setDataForQueries,
-    { data: getAllStatusQueries, isLoading: isDataLoading },
+    { data: getAllStatusQueries, isLoading: isDataLoading }, //search
   ] = useLazyGetStatusByContactQuery();
 
-  const [updateState, { isLoading: isStatusUpdateLoading }] =
+  const [updateState, { isLoading: isStatusUpdateLoading }] = //update
     useUpdateStatusMutation();
 
   const [searchActive, setSearchActive] = useState(false);
-  const { data: status, isLoading } = useGetAllStatusDetailsQuery();
+  const { data: status, isLoading } = useGetAllStatusDetailsQuery(); //status
   const [state, setStatus] = useState("");
   const [contactNo, setContactNo] = useState("");
 
@@ -157,7 +157,11 @@ function UpdateStatus() {
             mx="auto"
           >
             <Stack direction={{ base: "column", sm: "row" }}>
-              <Box p={["1px", "1px", "1px"]} w={["100%", "40%", "60%"]}>
+              <Box
+                // p={["1px", "1px", "2px"]}
+                p={{ md: "5px", lg: "2px" }}
+                w={["100%", "40%", "60%"]}
+              >
                 <Text
                   fontSize={{ lg: "2xl", md: "xl" }}
                   position={"relative"}
@@ -168,21 +172,24 @@ function UpdateStatus() {
                 </Text>
               </Box>
               <Box
-                p={["1px", "1px", "1px"]}
-                w={["100%", "30%", "160%"]}
+                // p={["1px", "1px", "1px"]}
+                // p={{md:"1px",lg:"1px"}}
+
+                w={["100%", "30%", "150%"]}
                 textAlign="center"
               >
                 <Input
                   variant="outline"
-                  placeholder="Enter Contact Here"
+                  placeholder="Enter Contact To Fetch Data"
                   name="contactNo"
                   rounded={"30px"}
                   onChange={onChangeSearch}
                 />
               </Box>
               <Box
-                p={["1px", "1px", "5px"]}
-                w={["100%", "30%", "25%"]}
+                p={{ md: "5px", lg: "4px" }}
+                // w={["100%", "30%", "13%"]}
+                w={{ md: "14%", lg: "13%" }}
                 textAlign="right"
               >
                 <Button
@@ -191,7 +198,7 @@ function UpdateStatus() {
                   color="white"
                   h={8}
                   position={"relative"}
-                  b={10}
+                  w={100}
                   _hover={{ bg: " #202A9A" }}
                   rounded={"xl"}
                   alignItems={"center"}
@@ -203,6 +210,32 @@ function UpdateStatus() {
                   }}
                 >
                   Search
+                </Button>
+              </Box>
+              <Box
+                p={{ md: "5px", lg: "4px" }}
+                // w={["100%", "30%", "20%"]}
+                w={{ md: "14%", lg: "20%" }}
+                textAlign="right"
+              >
+                <Button
+                  type="submit"
+                  bg="#1A237E"
+                  color="white"
+                  h={8}
+                  position={"relative"}
+                  w={100}
+                  _hover={{ bg: " #202A9A" }}
+                  rounded={"xl"}
+                  alignItems={"center"}
+                  fontFamily={"sans-serif"}
+                  fontWeight={"light"}
+                  fontSize={13}
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                >
+                  Clear
                 </Button>
               </Box>
             </Stack>
@@ -233,13 +266,13 @@ function UpdateStatus() {
                   direction={{ base: "column", sm: "row" }}
                   // w={{ base: "100%", sm: "80%", md: "70%", lg: "100%" }}
                 >
-                  <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "60%"]}>
+                  <Box p={["1px", "1px", "1px"]} w={{ md: "23%", lg: "75%" }}>
                     <Text>Name: {getAllStatusQueries.Name}</Text>
                   </Box>
-                  <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "100%"]}>
+                  <Box p={["1px", "1px", "1px"]} w={{ md: "28%", lg: "100%" }}>
                     <Text>User Id: {getAllStatusQueries.id}</Text>
                   </Box>
-                  <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "60%"]}>
+                  <Box p={["1px", "1px", "1px"]} w={{ md: "30%", lg: "60%" }}>
                     <Text>Contact: {getAllStatusQueries.ContactNo} </Text>
                   </Box>
                 </Stack>
@@ -249,40 +282,47 @@ function UpdateStatus() {
               </Box>
               {/* BOX OF DOMAIN, STATUS, TYPE, UPDATE */}
               <Box
-                w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
-                p={2}
-                mx="auto"
-              >
-                <Stack
-                  direction={["column", "row"]}
-                  w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
-                >
-                  <HStack direction={["column", "row"]}>
-                    <Box pl={["0px", "90px", "90px"]}>
-                      <Text>Domain</Text>
-                    </Box>
-                  </HStack>
-                  <HStack direction={["column", "row"]}>
-                    <Box pl={["0px", "180px", "180px"]}>
-                      <Text>Status</Text>
-                    </Box>
-                    <Box pl={["0px", "150px", "140px"]}>
-                      <Text>Type</Text>
-                    </Box>
-                  </HStack>
-                  <HStack direction={["column", "row"]}>
-                    <Box
-                      pl={["0px", "130px", "120px"]}
-                      float={["none", "right", "right"]}
+                      w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
+                      p={2}
+                      mx="auto"
                     >
-                      <Text>Update</Text>
+                      <Stack direction={["column", "row"]}>
+                        <HStack
+                          direction={["column", "row"]}
+                          w={{ md: "25%", lg: "25%" }}
+                        >
+                          <Box pl={["0px", "90px", "90px"]}>
+                            <Text>Domain</Text>
+                          </Box>
+                        </HStack>
+                        <HStack
+                          direction={["column", "row"]}
+                          w={{ md: "43%", lg: "50%" }}
+                        >
+                          <Box pl={{ md: "80px", lg: "130px" }}>
+                            <Text>Status</Text>
+                          </Box>
+                          <Box pl={{ md: "140px", lg: "150px" }}>
+                            <Text>Type</Text>
+                          </Box>
+                        </HStack>
+                        <HStack
+                          direction={["column", "row"]}
+                          w={{ md: "25%", lg: "25%" }}
+                        >
+                          <Box
+                            pl={{ md: "0", lg: "90px" }}
+                            float={{ lg: "right", md: "right" }}
+                            // paddingRight={{md:"100px"}}
+                          >
+                            <Text>Update</Text>
+                          </Box>
+                        </HStack>
+                      </Stack>
+                      <Box w="95%">
+                        <hr />
+                      </Box>
                     </Box>
-                  </HStack>
-                </Stack>
-                <Box w="95%">
-                  <hr />
-                </Box>
-              </Box>
               <Box
                 w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
                 overflow={"hidden"}
@@ -300,7 +340,8 @@ function UpdateStatus() {
                           <HStack direction={["column", "column"]}>
                             <Box
                               overflow={"hidden"}
-                              w={["100%", "auto"]}
+                              // w={["100%", "auto"]}
+                              w={{ lg: "100%" }}
                               m={1}
                               key={web.domainName}
                             >
@@ -310,12 +351,12 @@ function UpdateStatus() {
                             </Box>
                           </HStack>
                         </Box>
-                        <Box m={1}>
+                        <Box m={1}  w={{ md: "15%", lg: "20%" }}>
                           <VStack direction={["column", "row"]}>
                             <Box
-                              pl={["0px", "70px", "20px"]}
-                              m={["3px", "3px", "2px"]}
-                              w={["100%", "80%", "auto"]}
+                               pl={{ lg: "20px", md: "20px" }}
+                               m={["3px", "3px", "2px"]}
+                               w={["100%", "50%", "auto"]}
                             >
                               <Select
                                 placeholder="Select Status"
@@ -329,20 +370,25 @@ function UpdateStatus() {
                             </Box>
                           </VStack>
                         </Box>
-                        <Box m={["8px", "8px", "8px"]}>
+                        <Box 
+                         m={["8px", "8px", "8px"]}
+                         w={{ md: "20%", lg: "20%" }}>
                           <VStack>
                             <Box
-                              pl={["0px", "55px", "55px"]}
+                              pl={{ lg: "55px", md: "20px" }}
                               m={["3px", "3px", "3px"]}
                             >
                               <Text key={web.websiteType}>{web.type}</Text>
                             </Box>
                           </VStack>
                         </Box>
-                        <Box m={["8px", "8px", "8px"]}>
+                        <Box 
+                           m={["8px", "8px", "10px"]}
+                           w={{ md: "15", lg: "20%" }}
+                          >
                           <VStack direction={["column", "row"]}>
                             <Box
-                              pl={["0px", "120px", "75px"]}
+                               pl={{ lg: "15px", md: "1px" }}
                               position={["relative", "relative", "relative"]}
                               key={web.webSiteId}
                             >
@@ -400,21 +446,23 @@ function UpdateStatus() {
                       <Stack direction={{ base: "column", sm: "row" }}>
                         <Box
                           p={["1px", "1px", "1px"]}
-                          w={["100%", "30%", "60%"]}
+                          w={{ md: "23%", lg: "75%" }}
                           key={item.Name}
                         >
-                          <Text>{item.Name}</Text>
+                          <Text>Name: {item.Name}</Text>
                         </Box>
                         <Box
                           p={["1px", "1px", "1px"]}
-                          w={["100%", "30%", "100%"]}
+                          // w={["100%", "30%", "100%"]}
+                          w={{ md: "28%", lg: "100%" }}
                           key={item._id}
                         >
                           <Text>User Id: {item._id}</Text>
                         </Box>
                         <Box
                           p={["1px", "1px", "1px"]}
-                          w={["100%", "30%", "60%"]}
+                          // w={["100%", "30%", "60%"]}
+                          w={{ md: "30%", lg: "60%" }}
                           key={item.ContactNo}
                         >
                           <Text>Contact: {item.ContactNo}</Text>
@@ -431,23 +479,33 @@ function UpdateStatus() {
                       mx="auto"
                     >
                       <Stack direction={["column", "row"]}>
-                        <HStack direction={["column", "row"]}>
+                        <HStack
+                          direction={["column", "row"]}
+                          w={{ md: "25%", lg: "25%" }}
+                        >
                           <Box pl={["0px", "90px", "90px"]}>
                             <Text>Domain</Text>
                           </Box>
                         </HStack>
-                        <HStack direction={["column", "row"]}>
-                          <Box pl={["0px", "180px", "180px"]}>
+                        <HStack
+                          direction={["column", "row"]}
+                          w={{ md: "43%", lg: "50%" }}
+                        >
+                          <Box pl={{ md: "80px", lg: "130px" }}>
                             <Text>Status</Text>
                           </Box>
-                          <Box pl={["0px", "150px", "140px"]}>
+                          <Box pl={{ md: "140px", lg: "150px" }}>
                             <Text>Type</Text>
                           </Box>
                         </HStack>
-                        <HStack direction={["column", "row"]}>
+                        <HStack
+                          direction={["column", "row"]}
+                          w={{ md: "25%", lg: "25%" }}
+                        >
                           <Box
-                            pl={["0px", "130px", "120px"]}
-                            float={["none", "right", "right"]}
+                            pl={{ md: "0", lg: "90px" }}
+                            float={{ lg: "right", md: "right" }}
+                            // paddingRight={{md:"100px"}}
                           >
                             <Text>Update</Text>
                           </Box>
@@ -457,8 +515,9 @@ function UpdateStatus() {
                         <hr />
                       </Box>
                     </Box>
+                    {/* BOX IS USED FOR DISPLAY DETAILS OF DOMAIN NAME, STATUS SELECTION, TYPE_NAME, UPDATE_BUTTON */}
                     <Box
-                      w={{ base: "100%", sm: "80%", md: "100%" }}
+                      w={{ base: "100%", sm: "80%", md: "100%", lg: "100%" }}
                       overflow={"hidden"}
                     >
                       {item.website.map((web) => {
@@ -474,7 +533,8 @@ function UpdateStatus() {
                                 <HStack direction={["column", "column"]}>
                                   <Box
                                     overflow={"hidden"}
-                                    w={["100%", "auto"]}
+                                    // w={["100%", "100%"]}
+                                    w={{ lg: "100%" }}
                                     m={1}
                                     key={web.domainName}
                                   >
@@ -484,10 +544,11 @@ function UpdateStatus() {
                                   </Box>
                                 </HStack>
                               </Box>
-                              <Box m={1}>
+                              <Box m={1} w={{ md: "15%", lg: "20%" }}>
                                 <VStack direction={["column", "row"]}>
                                   <Box
-                                    pl={["0px", "70px", "20px"]}
+                                    // pl={["0px", "70px", "20px"]}
+                                    pl={{ lg: "20px", md: "20px" }}
                                     m={["3px", "3px", "2px"]}
                                     w={["100%", "50%", "auto"]}
                                   >
@@ -504,10 +565,14 @@ function UpdateStatus() {
                                   </Box>
                                 </VStack>
                               </Box>
-                              <Box m={["8px", "8px", "8px"]}>
+                              <Box
+                                m={["8px", "8px", "8px"]}
+                                w={{ md: "20%", lg: "20%" }}
+                              >
                                 <VStack>
                                   <Box
-                                    pl={["0px", "55px", "55px"]}
+                                    // pl={["0px", "55px", "55px"]}
+                                    pl={{ lg: "55px", md: "20px" }}
                                     m={["3px", "3px", "3px"]}
                                   >
                                     <Text key={web.websiteType}>
@@ -516,10 +581,14 @@ function UpdateStatus() {
                                   </Box>
                                 </VStack>
                               </Box>
-                              <Box m={["8px", "8px", "10px"]}>
+                              <Box
+                                m={["8px", "8px", "10px"]}
+                                w={{ md: "15", lg: "20%" }}
+                              >
                                 <VStack direction={["column", "row"]}>
                                   <Box
-                                    pl={["0px", "120px", "65px"]}
+                                    // pl={["0px", "120px", "15px"]}
+                                    pl={{ lg: "15px", md: "1px" }}
                                     position={[
                                       "relative",
                                       "relative",
@@ -555,7 +624,6 @@ function UpdateStatus() {
                         <hr />
                       </Box>
                     </Box>
-                    {/* BOX IS USED FOR DISPLAY DETAILS OF DOMAIN NAME, STATUS SELECTION, TYPE_NAME, UPDATE_BUTTON */}
                   </Box>
                 </>
               );

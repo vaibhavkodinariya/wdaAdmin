@@ -85,8 +85,8 @@ function Login({ setIsLoggedIn }) {
         result.unwrap().then((response) => {
           if (response.success == true) {
             sessionStorage.setItem("user", JSON.stringify(response.userId));
+            location.reload();
             setIsLoggedIn(true);
-            window.location.reload();
           } else {
             toast({
               title: response.message,
@@ -148,6 +148,7 @@ function Login({ setIsLoggedIn }) {
               fontFamily={"noto-serif"}
               focusBorderColor="#1A237E"
               rounded={"xl"}
+              color={"#1A237E"}
               onChange={handleMobileNumberChange}
             />
           </FormControl>
@@ -165,6 +166,8 @@ function Login({ setIsLoggedIn }) {
               borderColor={"black"}
               focusBorderColor={"#1A237E"}
               rounded={"xl"}
+              color={"#1A237E"}
+
               fontFamily={"noto-serif"}
             />
           </FormControl>

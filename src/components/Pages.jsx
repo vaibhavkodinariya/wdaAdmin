@@ -8,8 +8,8 @@ function Pages() {
   return (
     <>
       <Routes>
-        <Route exact path={"/Login"} element={<Login />} />
-        <Route exact path={"/"} element={<Home />} />
+        <Route exact path={"/"} element={<Login />} />
+        <Route exact path={"/Home"} element={<Home />} />
         <Route exact path={"/us"} element={<UpdateStatus />} />
       </Routes>
     </>
