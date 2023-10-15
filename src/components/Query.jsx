@@ -225,7 +225,7 @@ function Query() {
                 p={2}
                 mx="auto"
               >
-                <Box p={["1px", "1px", "1px"]} w={["100%", "30%", "95%"]}>
+                <Box p={["1px", "1px" , "1px"]} w={["100%", "30%", "95%"]}>
                   {getAllQueriesByContact.Name}
                   {getAllQueriesByContact.ContactNo}
                 </Box>
@@ -274,13 +274,36 @@ function Query() {
                         </Text>
                       </Box>
                     </Box>
+                    
                   </>
                 );
+                
               })}
             </>
           )}
         </>
       )}
+       <Box
+                    p={["1px", "1px", "1px"]}
+                    // w={["100%", "50%", "100%"]}
+                    w={{ md: "100%", lg: "100%" }}
+                    h={{ md: "100%", lg: "30%" }}
+                    bottom={{ md: "0", lg: "1%" }}
+                    bgColor={"white"}
+                    position={"sticky"}
+                    mr={{ base: "0", sm: "0", md: "1", lg: "1" }}
+                  >
+                    <Text
+                      fontSize={{ base: "2xl", md: "xl", lg: "2xl" }}
+                      position={"relative"}
+                      textAlign="center"
+                      color={"gray.500"}
+                      w={{ md: "100%", lg: "100%" }}
+                      m={{ base: "0", sm: "0", md: "1", lg: "3" }}
+                    >
+                      Tap on user to see details search with contact number
+                    </Text>
+                  </Box>
     </Box>
   );
 }

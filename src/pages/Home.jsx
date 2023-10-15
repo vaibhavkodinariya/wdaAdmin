@@ -89,7 +89,6 @@ function Home() {
           /> */}
 
           <TabPanels
-            // bgColor={"white"}
             mt={{ md: "20", lg: "18" }}
             right={{ md: "5%" }}
             alignItems="center"
@@ -108,7 +107,7 @@ function Home() {
               //  px={2}
               justifyContent="center"
               alignItems="center"
-              
+
               // top={{lg:"-25px"}}
               // position="relative"
             >
@@ -128,6 +127,7 @@ function Home() {
                   overflow="auto"
                   border="1px solid #ccc"
                   borderRadius="md"
+                  bgColor={"white"}
                   position={"relative"}
                   right={{ md: "0", lg: "6%" }}
                   p={1}
@@ -138,7 +138,6 @@ function Home() {
                   <Box
                     // minW={{ base: "100%", md: "100%", lg:"100%"}}
                     w={{ base: "100%", md: "100%", lg: "98%" }}
-                    
                   >
                     <UpdateStatus />
                   </Box>
@@ -150,11 +149,14 @@ function Home() {
                   p={3}
                   maxW={{ base: "100%", md: "100%", lg: "70%" }}
                   // left={"10%"}
+                  bgColor={"white"}
                   left={{ md: "0", lg: "10%" }}
                   position={"relative"}
                   maxH={{ base: "100vh", lg: "60vh" }}
                 >
                   <Query />
+                  {/* static imformative box for user */}
+                 
                 </Box>
               </Grid>
             </TabPanel>
@@ -164,9 +166,9 @@ function Home() {
           bgColor={"white"}
           w={{ base: "100%", sm: "100%", md: "92%", lg: "70%" }}
           rounded={"xl"}
-          display={{lg:"flex"}}
-          left={{lg:"15%",md:"4%"}}
-          top={{lg:"20px"}}
+          display={{ lg: "flex" }}
+          left={{ lg: "15%", md: "4%" }}
+          top={{ lg: "20px" }}
           position={"relative"}
           // alignItems={"center"}
           // justifyContent={"center"}
@@ -179,14 +181,13 @@ function Home() {
             mx="auto"
           >
             <Stack direction={{ base: "column", sm: "row" }}>
-              <Box 
-              p={["1px", "1px", "1px"]} 
-              // w={["100%", "50%", "100%"]}
-              w={{md:"100%",lg:"100%"}}
-              
+              <Box
+                p={["1px", "1px", "1px"]}
+                // w={["100%", "50%", "100%"]}
+                w={{ md: "100%", lg: "100%" }}
               >
                 <Text
-                  fontSize={{ base: "2xl", md: "xl", lg: "2xl"}}
+                  fontSize={{ base: "2xl", md: "xl", lg: "2xl" }}
                   position={"relative"}
                   textAlign="left"
                   ml={{ base: "0", sm: "0", md: "1", lg: "3" }}
@@ -221,7 +222,7 @@ function Home() {
               <Box
                 p={["1px", "1px", "1px"]}
                 // w={["100%", "30%", "25%"]}
-                w={{lg:"25%",md:"100%"}}
+                w={{ lg: "25%", md: "100%" }}
                 textAlign="right"
               >
                 <Button

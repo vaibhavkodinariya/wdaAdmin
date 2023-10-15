@@ -110,7 +110,7 @@ function Login({ setIsLoggedIn }) {
   return (
     <Box
       width={{ base: "100%", md: "100%", lg: "80%" }}
-      height={{ base: "90vh", md: "90vh", lg: "99vh" }}
+      height={{ base: "90vh", md: "90vh", lg: "98vh" }}
       placeItems="center"
       color={"white"}
     >
@@ -133,9 +133,10 @@ function Login({ setIsLoggedIn }) {
           alignItems="center"
           justifyContent="center"
           position={{ base: "relative", md: "fixed" }}
-          paddingTop={{ base: "40vh", md: "60vh", lg: "60vh" }}
+          paddingTop={{ base: "40vh", md: "60vh", lg: "70vh" }}
           // bottom={{ base: "15vh", md: "-30vh", lg: "-35vh" }}
         >
+          
           <FormControl>
             {/* <FormLabel>Username</FormLabel> */}
             <Input
@@ -143,7 +144,7 @@ function Login({ setIsLoggedIn }) {
               name="data"
               value={mobileNumber}
               borderColor={"black"}
-              maxLength={10} // Set maximum length to 10 characters
+             maxLength={8}// Set maximum length to 10 characters
               placeholder="Mobile No"
               fontFamily={"noto-serif"}
               focusBorderColor="#1A237E"
@@ -152,6 +153,7 @@ function Login({ setIsLoggedIn }) {
               onChange={handleMobileNumberChange}
             />
           </FormControl>
+         
 
           <FormControl>
             {/* <FormLabel>Password</FormLabel> */}
@@ -161,8 +163,8 @@ function Login({ setIsLoggedIn }) {
               name="password"
               value={password}
               onChange={handlePasswordChange}
-              minLength={8}
-              maxLength={16}
+              // minLength={8}
+              maxLength={8}
               borderColor={"black"}
               focusBorderColor={"#1A237E"}
               rounded={"xl"}
@@ -174,6 +176,11 @@ function Login({ setIsLoggedIn }) {
           {passwordError && (
             <Text color="red" fontSize="sm">
               {passwordError}
+            </Text>
+          )}
+           {mobileError && (
+            <Text color="red" fontSize="sm">
+              {mobileError}
             </Text>
           )}
           <Button
